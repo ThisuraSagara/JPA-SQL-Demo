@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class ProductController {
     private ModelMapper modelMapper;
 
     @PostMapping("/product")
-    public ProductDtoPost addProduct(@RequestBody Product product){
+    public ProductDtoPost addProduct(@Valid @RequestBody Product product){
         Product product1 = productService.saveProduct(product);
         return modelMapper.map(product1, ProductDtoPost.class);
     }

@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 public class ProductDtoPost {
 
     private String name;
+    private int quantity;
     private double price;
 }
